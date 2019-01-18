@@ -16,3 +16,5 @@ tilauslistan tulostus
 kuitin tulostus
 tarjousten kirjaus
 ylläpidon kirjautuminen ja tilauksen tehneen asiakkaan tunnistaminen/kirjautuminen
+
+<p><a href="https://pizzapalvelu.herokuapp.com">Linkki herokuun</a></p>
