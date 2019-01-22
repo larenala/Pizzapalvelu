@@ -1,0 +1,35 @@
+As a user, I can create an account, so that I can place an order
+
+As a user I can choose an item from the menu so I can order that product
+
+As a user I want to navigate to menu page so I can see what I can order
+
+As a user I want to add new fillings to the pizza I have chosen, so I can customise it to my taste
+
+As a user I want to add several products to the same order, so I can order everything in one go
+
+As a user, I want to modify or cancel my order afterwards, so that I can change my mind
+
+As a user I want to see the bill and all the items on one page, so that I can check my order
+
+As a user I want to add or delete an item from the bill, so that I can change my order while placing it
+
+As a user I can see the discounts, if any, on the bill, so that I know I’ve been charged right
+
+As a user, I can view my previous orders
+
+
+As an admin, I can sign in with admin privileges, so that I can do the necessary work
+
+As an admin, I want to modify existing products, so that we will be able to make changes to prices and other product details
+
+As an admin, I want to add new products so the menu can be expanded
+
+As an admin, I want to delete existing products so I can remove the ones that aren’t necessary
+
+As an admin, I want to mark an order delivered, so that I can stay up-to-date 
+
+As an admin, I want to store information about problems with deliveries, so I can refuse service if necessary
+
+As an admin, I can create regular discounts without manually changing the price each time, so that I can have lunch discounts
+
