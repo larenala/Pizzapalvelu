@@ -24,5 +24,5 @@ Toimintoja:
 
 [User Storyt](/documentation/user_stories)
 
-Tietokantakaavio:
-![Tietokantakaavio](Tietokantakaavio.png "Tietokantakaavio")
+
+[Tietokantakaavio](Tietokantakaavio.png)
