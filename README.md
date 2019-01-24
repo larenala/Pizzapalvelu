@@ -19,10 +19,12 @@ Toimintoja:
 
 ***
 
+## Linkit 
+
 [Linkki Herokuun](https://pizzapalvelu.herokuapp.com)
 
 
 [User Storyt](/documentation/user_stories)
 
 
-[Tietokantakaavio](Tietokantakaavio.png)
+[Tietokantakaavio](/documentation/Tietokantakaavio.png)
