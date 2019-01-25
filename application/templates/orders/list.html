@@ -3,11 +3,13 @@
 {% block body %}
   <table>
     <tr>
-      <th>Order</th>
+      <th>Order number</th>
+      <th>Item</th>
       <th>Delivered</th>
     </tr>
     {% for order in orders %}
     <tr>
+      <td>{{ order.id }}</td>
       <td>{{ order.name }}</td>
       <td>{{ order.done }}</td>
       <td>

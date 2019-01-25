@@ -9,6 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 # kertoo, tiedosto sijaitsee tämän sovelluksen tiedostojen kanssa
 # samassa paikassa
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///orders.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pizzas.db"
 
 # Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
 app.config["SQLALCHEMY_ECHO"] = True
@@ -21,6 +22,9 @@ from application import views
 
 from application.orders import models
 from application.orders import views
+
+from application.pizzas import models
+from application.pizzas import views
 
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()

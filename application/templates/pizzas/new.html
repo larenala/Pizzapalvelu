@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('pizza_create') }}">
+  <label>Nimi: </label>
+  <input type="text" name="name"/></br>
+  <label>Ingredients: </label>
+  <input type="text" name="ingredient"/></br>
+  <input type="submit" value="Create"/>
+</form>
+{% endblock %}
+
+
+

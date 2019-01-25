@@ -7,7 +7,10 @@
 
     <body>
       <ul>
-	<li><a href="{{ url_for('orders_index') }}">List orders</a></li>
+	<li><a href="{{ url_for('orders_index') }}">Home</a></li>
+	<li><a href="{{ url_for('pizzas_index') }}">List pizzas</a></li>
+	<li><a href="{{ url_for('pizzas_form') }}">Add a new pizza</a></li>
+	<li><a href="{{ url_for('orders_index') }}">List my orders</a></li>
 	<li><a href="{{ url_for('orders_form') }}">Add a new order</a></li>
       </ul>
       {% block body %}
