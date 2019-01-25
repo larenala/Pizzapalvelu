@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Order</th>
+      <th>Delivered</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+      <td>{{ order.name }}</td>
+      <td>{{ order.done }}</td>
+      <td>
+	<form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">
+	  <input type="submit" value="Change status!"/>
+	</form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
