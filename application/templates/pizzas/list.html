@@ -9,8 +9,13 @@
     </tr>
     {% for pizza in pizzas %}
     <tr>
-      <td>{{ pizza.name }}</td>
-      <td>{{ pizza.ingredient }}</td>
+      <td style="text-transform: uppercase; color: red;"> {{ pizza.name }}</td>
+    </tr>
+    <tr>
+      <td>Ingredients: {{ pizza.ingredients }}</td>
+    </tr>
+    <tr>
+      <td><img src={{ pizza.img }} width="150" alt="pizza image"/></td>
     </tr>
     {% endfor %}
   </table>
