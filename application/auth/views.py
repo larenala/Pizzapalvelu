@@ -43,4 +43,4 @@ def create_user():
     user = User(name, username, password)
     db.session.add(user)
     db.session.commit()
-    return redirect(url_for('index'))
+    return redirect(url_for('auth_login'))
