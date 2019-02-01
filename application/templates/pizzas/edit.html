@@ -7,23 +7,32 @@
           {{ form.name.label }}
         </td>
         <td>
-          {{ form.name }}
+          {{ form.name(value= pizza.name) }}
         </td>
        <tr>
        <td>
          {{ form.ingredients.label }}
        </td>
        <td>
-          {{ form.ingredients }} 
+          {{ form.ingredients(value=pizza.ingredients) }} 
        </td>
        <tr>
          <td>
            {{ form.img.label }}
          </td>
          <td>
-          {{ form.img }}
+          {{ form.img(value=pizza.img) }}
          </td>
        </tr>
+       <tr>
+        <td>
+          {{ form.price.label }}
+        </td>
+        <td>
+          {{ form.price(value=pizza.price) }}
+        </td>
+      </tr>
+
     </table>
    <input type="submit" name="muokkaa" value="Update" />
 

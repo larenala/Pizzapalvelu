@@ -6,8 +6,10 @@ class Pizza(db.Model):
     ingredients = db.Column(db.String(144), nullable=False)
     name = db.Column(db.String(144), nullable=False)
     img = db.Column(db.String(200), nullable=False)
+    price = db.Column(db.String(10), nullable=False)
 
-    def __init__(self, name, ingredients, img):
+    def __init__(self, name, ingredients, img, price):
         self.name = name
         self.ingredients = ingredients
         self.img = img
+        self.price = price

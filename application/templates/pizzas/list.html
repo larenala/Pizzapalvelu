@@ -19,7 +19,13 @@
     </tr>
     <tr>
       <td>
+        Price: {{ pizza.price }}
+      </td>
+    </tr>
+    <tr>
+      <td>
         <input type="submit" name="tilaus" value="Add to order" />
+        <button><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}>View</a></button>
       </td>
     </tr>
     {% endfor %}

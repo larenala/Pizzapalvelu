@@ -30,7 +30,8 @@ def pizza_create():
     name = form.name.data
     ingredients = form.ingredients.data
     img = form.img.data
-    p = Pizza(name, ingredients, img)
+    price = form.price.data
+    p = Pizza(name, ingredients, img, price)
     db.session().add(p)
     db.session().commit()  
     return redirect(url_for('pizzas_index'))
@@ -41,11 +42,14 @@ def pizza_edit_index(pizza_id):
 
 @app.route("/pizzas/edit/<pizza_id>/", methods=["POST"])
 def pizza_update(pizza_id):
-    form=PizzaForm(request.form)
     p=Pizza.query.get(pizza_id)
-    p.name=form.name.data
+    form=PizzaForm(request.form)
+
+    if form.name.data:
+          p.name=form.name.data
     p.ingredients=form.ingredients.data
     p.img = form.img.data
+    p.price = form.price.data
     db.session().commit()
     return redirect(url_for('pizzas_index'))
 
