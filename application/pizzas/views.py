@@ -34,3 +34,26 @@ def pizza_create():
     db.session().add(p)
     db.session().commit()  
     return redirect(url_for('pizzas_index'))
+
+@app.route("/pizzas/edit/<pizza_id>/", methods=["GET"])
+def pizza_edit_index(pizza_id):
+    return render_template("pizzas/edit.html", pizza=Pizza.query.get(pizza_id), form=PizzaForm())
+
+@app.route("/pizzas/edit/<pizza_id>/", methods=["POST"])
+def pizza_update(pizza_id):
+    form=PizzaForm(request.form)
+    p=Pizza.query.get(pizza_id)
+    p.name=form.name.data
+    p.ingredients=form.ingredients.data
+    p.img = form.img.data
+    db.session().commit()
+    return redirect(url_for('pizzas_index'))
+
+@app.route("/pizzas/delete/<pizza_id>/", methods=["POST"])
+def pizza_delete(pizza_id):
+    p=Pizza.query.get(pizza_id)
+    db.session().delete(p)
+    db.session().commit()
+    return redirect(url_for('pizzas_index'))
+
+

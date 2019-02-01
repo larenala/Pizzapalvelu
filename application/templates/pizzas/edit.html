@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+<form method="POST" action="{{ url_for('pizza_update', pizza_id=pizza.id) }}">
+    <table>
+      <tr>
+        <td>
+          {{ form.name.label }}
+        </td>
+        <td>
+          {{ form.name }}
+        </td>
+       <tr>
+       <td>
+         {{ form.ingredients.label }}
+       </td>
+       <td>
+          {{ form.ingredients }} 
+       </td>
+       <tr>
+         <td>
+           {{ form.img.label }}
+         </td>
+         <td>
+          {{ form.img }}
+         </td>
+       </tr>
+    </table>
+   <input type="submit" name="muokkaa" value="Update" />
+
+</form>
+
+
+
+<form method="POST" action="{{ url_for('pizza_delete', pizza_id=pizza.id) }}">
+    <input type="submit" name="poista" value="Remove" />
+</form>
+{% endblock %}
+
