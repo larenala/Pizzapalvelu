@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+<table>
+  <th>
+      {{ pizza.name }}
+  </th>
+
+  <tr>
+    <td> 
+      Ingredients: {{ pizza.ingredients }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <img src= {{ pizza.img }} width=350 alt="pizza image"/>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <input type="submit" name="tilaa" value="Add to order" />
+    </td>
+  </tr>
+
+</table>
+
+{% endblock %}

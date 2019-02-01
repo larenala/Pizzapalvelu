@@ -10,6 +10,10 @@ from application.pizzas.forms import PizzaForm
 def pizzas_index():
    return render_template("pizzas/list.html", pizzas=Pizza.query.all()) 
 
+@app.route("/pizzas/<pizza_id>/", methods=["GET"])
+def show_pizza(pizza_id):    
+    return render_template("pizzas/pizza.html", pizza=Pizza.query.filter_by(id=pizza_id).first())
+
 @app.route("/pizzas/new/")
 @login_required
 def pizzas_form():

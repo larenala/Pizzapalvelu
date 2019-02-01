@@ -15,7 +15,12 @@
       <td>Ingredients: {{ pizza.ingredients }}</td>
     </tr>
     <tr>
-      <td><img src={{ pizza.img }} width="150" alt="pizza image"/></td>
+      <td><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}><img src={{ pizza.img }} width="150" alt="pizza image"/></a></td>
+    </tr>
+    <tr>
+      <td>
+        <input type="submit" name="tilaus" value="Add to order" />
+      </td>
     </tr>
     {% endfor %}
   </table>
