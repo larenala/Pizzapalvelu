@@ -1,23 +1,36 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Order number</th>
-      <th>Item</th>
-      <th>Delivered</th>
-    </tr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order number</th>
+        <th scope="col">Name</th>
+        <th scope="col">Account number</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">Delivered</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
     {% for order in orders %}
-    <tr>
-      <td>{{ order.id }}</td>
-      <td>{{ order.name }}</td>
-      <td>{{ order.done }}</td>
-      <td>
-	<form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">
+      <tr scope="row">
+        <td>{{ order.id }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.account_id }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.phone }}</td>
+        <td>{{ order.delivered }}</td>
+        <td>{{ order.price }}</td>
+      
+        <td>
+       	<form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">
 	  <input type="submit" value="Change status!"/>
 	</form>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+        </td>
+      </tr>
+      {% endfor %}
+     </tbody>
+   </table>
 {% endblock %}
