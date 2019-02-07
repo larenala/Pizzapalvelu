@@ -54,6 +54,7 @@ def pizza_update(pizza_id):
     return redirect(url_for('pizzas_index'))
 
 @app.route("/pizzas/delete/<pizza_id>/", methods=["POST"])
+@login_required
 def pizza_delete(pizza_id):
     p=Pizza.query.get(pizza_id)
     db.session().delete(p)
