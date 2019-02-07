@@ -4,18 +4,17 @@
 
 <table>
     <tr>
-      <th>Pizza</th>
-      <th>Ingredients</th>
+      <th>Pizzas</th>
     </tr>
     {% for pizza in pizzas %}
     <tr>
-      <td style="text-transform: uppercase; color: red;"> {{ pizza.name }}</td>
-    </tr>
-    <tr>
-      <td>Ingredients: {{ pizza.ingredients }}</td>
+      <td style="text-transform: uppercase;"> {{ pizza.name }}</td>
     </tr>
     <tr>
       <td><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}><img src={{ pizza.img }} width="150" alt="pizza image"/></a></td>
+    </tr>
+    <tr>
+      <td>Ingredients: {{ pizza.ingredients }}</td>
     </tr>
     <tr>
       <td>
