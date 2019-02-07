@@ -5,10 +5,16 @@ class Tilaus(db.Model):
     order_date = db.Column(db.DateTime, default=db.func.current_timestamp())
     delivery_date = db.Column(db.DateTime, default=db.func.current_timestamp(),
     onupdate=db.func.current_timestamp())
+    name = db.Column(db.String(144))
+    address = db.Column(db.String(144))
+    phone = db.Column(db.String(15))
+    delivered = db.Column(db.Boolean, nullable=False)
+    price = db.Column(db.String(20), nullable=False)
 
-    name = db.Column(db.String(144), nullable=False)
-    done = db.Column(db.Boolean, nullable=False)
+    account_id=db.Column(db.Integer, db.ForeignKey('account.id'),
+                           nullable=False)
 
-    def __init__(self, name):
-        self.name = name
-        self.done = False
+    def __init__(self, account_id, price=0):
+        self.account_id = account_id
+        self.delivered = False
+        self.price = price
