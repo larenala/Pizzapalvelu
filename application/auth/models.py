@@ -13,6 +13,8 @@ class User(db.Model):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
+    orders=db.relationship("Tilaus", backref='account', lazy=True)
+
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
@@ -29,3 +31,4 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
