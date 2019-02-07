@@ -1,8 +1,39 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('orders_create') }}">
-  <input type="text" name="name"/>
-  <input type="submit" value="Add a new order"/>
+<form method="POST" action="{{ url_for('orders_send') }}">
+
+<table>
+    <tr>
+      <td>
+	{{ form.name.label }}
+      </td>
+      <td>
+	{{ form.name }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+	{{ form.address.label }}
+      </td>
+      <td>
+	{{ form.address }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.phone.label }}
+      </td>
+      <td>
+        {{ form.phone }}
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+	<input type="submit" value="Add a new order"/>
+      </td>
+    </tr>
+
 </form>
 {% endblock %}
