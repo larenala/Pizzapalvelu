@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order number</th>
+        <th scope="col">Order date</th>
+        <th scope="col">Account number</th>
+        <th scope="col">Delivery address</th>
+        <th scope="col">Items delivered</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for order in orders %}
+      <tr scope="row">
+        <td>{{ order.id }}</td>
+        <td>{{ order.order_date }}</td>
+        <td>{{ order.account_id }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.items }}</td>
+        <td>{{ order.price }}</td>
+      </tr>
+      {% endfor %}
+     </tbody>
+   </table>
+{% endblock %}
+
+
