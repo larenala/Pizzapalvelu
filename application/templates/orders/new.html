@@ -2,6 +2,19 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('orders_send') }}">
+<h4>Ordered items:</h4>
+<table>
+
+  {% for  pizza in pizzas %}
+    <tr>
+      <td>{{ pizza.name }}</li>
+      <td>{{ pizza.price }}</li>
+    </tr>
+  {% endfor %}
+</table>
+
+  <p>Total: </p>
+
 
 <table>
     <tr>
