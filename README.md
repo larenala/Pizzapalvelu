@@ -32,3 +32,8 @@ Toimintoja:
 ***
 
 Testitunnukset voi luoda yläpalkin Register new user-kohdassa! 
+Voi myös käyttää valmiita tunnuksia username "testi" ja salasana "testi123".
+
+Tällä hetkellä pizzoja voi lisätä, muokata ja poistaa.
+Käyttäjän voi lisätä. Tilausten listaus ja tuotteiden näyttäminen oikeassa tilauksessa ei vielä 
+toimi.   
