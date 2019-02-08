@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
+from application.orders.models import Tilaus
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import AccountForm, LoginForm
@@ -17,8 +18,6 @@ def auth_login():
     if not user:
         return render_template("auth/loginform.html", form = form,
                                error = "No such username or password")
-
-
     login_user(user)
     return redirect(url_for("index"))    
 
@@ -44,3 +43,4 @@ def create_user():
     db.session.add(user)
     db.session.commit()
     return redirect(url_for('auth_login'))
+
