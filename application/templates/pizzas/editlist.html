@@ -7,12 +7,11 @@
       <th>Pizzas</th>
     </tr>
     {% for pizza in pizzas %}
-    <form method="POST" action="{{ url_for('add_to_order', pizza_id=pizza.id) }}">
     <tr>
       <td style="text-transform: uppercase;"> {{ pizza.name }}</td>
     </tr>
     <tr>
-      <td><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}><img src={{ pizza.img }} width="150" alt="pizza image"/></a></td>
+      <td><a href= {{ url_for('pizza_update', pizza_id= pizza.id) }}><img src={{ pizza.img }} width="150" alt="pizza image"/></a></td>
     </tr>
     <tr>
       <td>Ingredients: {{ pizza.ingredients }}</td>
@@ -24,12 +23,10 @@
     </tr>
     <tr>
       <td>
-        <input type="submit" value="Add to order"/>
-        <button><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}>More options</a></button>
+        <button><a href= {{ url_for('pizza_update', pizza_id= pizza.id) }}>Edit</a></button>
       </td>
     </tr>
-    </form>
     {% endfor %}
   </table>
 
-{% endblock %}
+{% endblock %}x

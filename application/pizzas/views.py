@@ -24,19 +24,26 @@ def add_to_order(pizza_id):
         return render_template("orders/myorders.html", orders=Tilaus.query.filter_by(account_id=id))
     user = User.query.get(id)
 
-    if user.current_order == None:
-        order = Tilaus(id, 0)
+    if user.current_order == False:
+        user.current_order = True
+        pizza = Pizza.query.get(pizza_id)
+        order = Tilaus(id, pizza.price)
         db.session.add(order)
         db.session.commit()
-        tilausPizza = OrderPizza(order.id, pizza_id)
+        ind = order.id
+        tilausPizza = OrderPizza(ind, pizza_id)
         db.session.add(tilausPizza)
         db.session.commit()
-        user.current_order = True
+        
     else:
         orders = Tilaus.query.filter_by(account_id=id)
         len = orders.count()
-        o = orders[len]
+        if (len == 0): 
+            len=1
+        o = orders[len-1]
         tilausPizza = OrderPizza(o.id, pizza_id)
+        pizza = Pizza.query.filter_by(id=pizza_id).one()
+        o.price += float(pizza.price)
         db.session.add(tilausPizza)
         db.session.commit()
     return redirect(url_for('pizzas_index'))
@@ -63,12 +70,17 @@ def pizza_create():
     db.session().commit()  
     return redirect(url_for('pizzas_index'))
 
-@app.route("/pizzas/edit/<pizza_id>/", methods=["GET"])
-def pizza_edit_index(pizza_id):
-    return render_template("pizzas/edit.html", pizza=Pizza.query.get(pizza_id), form=PizzaForm())
+@app.route("/pizzas/edit", methods=["GET"]) 
+@login_required
+def pizza_edit_page():
+    return render_template("pizzas/editlist.html", pizzas=Pizza.query.all())
 
-@app.route("/pizzas/edit/<pizza_id>/", methods=["POST"])
+@app.route("/pizzas/edit/<pizza_id>/", methods=["GET", "POST"])
+@login_required
 def pizza_update(pizza_id):
+    if request.method == "GET":
+        return render_template("pizzas/edit.html", pizza=Pizza.query.get(pizza_id), form=PizzaForm())
+
     p=Pizza.query.get(pizza_id)
     form=PizzaForm(request.form)
 
@@ -78,7 +90,7 @@ def pizza_update(pizza_id):
     p.img = form.img.data
     p.price = form.price.data
     db.session().commit()
-    return redirect(url_for('pizzas_index'))
+    return redirect(url_for('pizza_edit_page'))
 
 
 @app.route("/pizzas/delete/<pizza_id>/", methods=["POST"])

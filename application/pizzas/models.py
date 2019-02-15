@@ -5,6 +5,7 @@ class Pizza(Product):
 
     __tablename__ = "pizza"
 
+    id = db.Column(db.Integer, primary_key=True)
     ingredients = db.Column(db.String(144), nullable=False)
     img = db.Column(db.String(200), nullable=False)
     ordered_pizzas = db.relationship("OrderPizza", backref='pizza', lazy=True)
