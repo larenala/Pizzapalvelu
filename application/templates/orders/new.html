@@ -1,21 +1,26 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('orders_send') }}">
-<h4>Ordered items:</h4>
+
+
+
+<h4>Items ordered: </h4>
 <table>
-
-  {% for  pizza in pizzas %}
+    
+    {% for  pizza in pizzas %}
+      <tr>
+        <td>{{ pizza.name }}</li>
+        <td>{{ pizza.price }}</li>
+      </tr>
+    {% endfor %} 
+    </br>
     <tr>
-      <td>{{ pizza.name }}</li>
-      <td>{{ pizza.price }}</li>
+      <td>Total: </td>
+      <td>{{ order.price }}</td>
     </tr>
-  {% endfor %}
-</table>
-
-  <p>Total: </p>
-
-
+</table></br>
+<form method="POST" action="{{ url_for('send_order', order_id=order.id) }}">
+<h4>Send order</h4>
 <table>
     <tr>
       <td>
@@ -47,6 +52,6 @@
 	<input type="submit" value="Add a new order"/>
       </td>
     </tr>
-
+</table>
 </form>
 {% endblock %}

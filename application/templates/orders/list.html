@@ -9,8 +9,9 @@
         <th scope="col">Account number</th>
         <th scope="col">Address</th>
         <th scope="col">Phone number</th>
+        <th scope="col">Items</th>
+        <th scope="col">Total</th>
         <th scope="col">Delivered</th>
-        <th scope="col">Username</th>
       </tr>
     </thead>
     <tbody>
@@ -21,8 +22,9 @@
         <td>{{ order.account_id }}</td>
         <td>{{ order.address }}</td>
         <td>{{ order.phone }}</td>
-        <td>{{ order.delivered }}</td>
+        <td>{{ order.items }}</td>
         <td>{{ order.price }}</td>
+        <td>{{ order.delivered }}</td>
       
         <td>
        	<form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">

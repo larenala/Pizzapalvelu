@@ -14,9 +14,9 @@ class Tilaus(db.Model):
     address = db.Column(db.String(144))
     phone = db.Column(db.String(15))
     delivered = db.Column(db.Boolean, nullable=False)
-    price = db.Column(db.String(20), nullable=False)
+    price = db.Column(db.Float(10), nullable=False)
     items = db.Column(db.String(100))
-
+    sent = db.Column(db.Boolean, nullable=False)
     orderedPizzas=db.relationship("OrderPizza", backref='order', lazy=True)
 
     account_id=db.Column(db.Integer, db.ForeignKey('account.id'),
@@ -28,6 +28,7 @@ class Tilaus(db.Model):
         self.delivered = False
         self.price = price 
         self.items = ""
+        self.sent = False
 
 
 class OrderPizza(db.Model):
@@ -40,9 +41,12 @@ class OrderPizza(db.Model):
         self.pizza_id = pizza_id
 
     @staticmethod
-    def find_pizza():
-        stmt=text("SELECT pizza.id, pizza.name, pizza.price FROM Pizza, OrderPizza WHERE pizza.id=OrderPizza.pizza_id")
+    def find_pizzas():
+        stmt=text("SELECT *  FROM Pizza")
         res=db.engine.execute(stmt)
 
+        response = []
         for row in res:
-            print(row[0])
+            response.append({"name": row[0]})
+  
+        return response
