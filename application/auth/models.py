@@ -13,7 +13,7 @@ class User(db.Model):
     username = db.Column(db.String(80), unique= True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
     blacklist = db.Column(db.Boolean, default=False)
-    current_order = db.Column(db.Boolean)
+    current_order = db.Column(db.Boolean, default=False)
     orders=db.relationship("Tilaus", backref='account', lazy=True)
 
     def __init__(self, name, username, password):
