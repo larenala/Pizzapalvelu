@@ -37,9 +37,8 @@ class Tilaus(db.Model):
     @staticmethod
     def find_pizzas_for_order(order_id):
         user_id=current_user.get_id()
-        order_id = str(order_id)
         stmt=text("SELECT Pizza.name, Pizza.price, Order_pizza.order_id FROM Pizza, Order_pizza"
-                  " WHERE Order_pizza.order_id == :orderid AND Order_pizza.pizza_id == Pizza.id").params(orderid= order_id)
+                  " WHERE Order_pizza.pizza_id == Pizza.id AND Order_pizza.order_id == :orderid").params(orderid= order_id)
         res = db.engine.execute(stmt)
         response = []
         for row in res:
