@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+
+<h4>Items ordered: </h4>
+<table>
+    
+    {% for  pizza in pizzas %}
+      <tr>
+        <td>{{ pizza.name }}</li>
+        <td>{{ pizza.price }}</li>
+      </tr>
+    {% endfor %} 
+    </br>
+    
+</table></br>
+
+<h4>Details</h4>
+<table>
+    <tr>
+      <td>
+	
+      </td>
+
+    </tr>
+    
+</table>
+
+{% endblock %}

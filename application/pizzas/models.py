@@ -16,5 +16,4 @@ class Pizza(Product):
         self.img = img
         self.price = price
 
-
-
+    

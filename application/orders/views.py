@@ -18,6 +18,10 @@ def myorders_index():
     id = current_user.get_id()
     return render_template("orders/myorders.html", orders=Tilaus.query.filter_by(account_id=id, sent=True))
 
+@app.route("/myorders/<order_id>/", methods=["GET"])
+def show_order(order_id):
+    return render_template("orders/show_order.html", order_id=order_id, pizzas=Tilaus.find_pizzas_for_order(order_id))
+
 @app.route("/orders/<order_id>/", methods=["POST"])
 def orders_set_delivered(order_id):
     t=Tilaus.query.get(order_id)
@@ -42,7 +46,6 @@ def send_order_main():
     id=order.id
     orderPizzas = OrderPizza.query.filter_by(order_id=id)
     pizzalist = [] 
-    p = OrderPizza.find_pizzas()
 
     for item in orderPizzas:
         p_id = item.pizza_id
