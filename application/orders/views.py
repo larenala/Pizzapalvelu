@@ -20,7 +20,8 @@ def myorders_index():
 
 @app.route("/myorders/<order_id>/", methods=["GET"])
 def show_order(order_id):
-    return render_template("orders/show_order.html", order_id=order_id, pizzas=Tilaus.find_pizzas_for_order(order_id))
+    order = Tilaus.query.get(order_id)
+    return render_template("orders/show_order.html", order_id=order_id, order=order, pizzas=Tilaus.find_pizzas_for_order(order_id))
 
 @app.route("/orders/<order_id>/", methods=["POST"])
 def orders_set_delivered(order_id):
