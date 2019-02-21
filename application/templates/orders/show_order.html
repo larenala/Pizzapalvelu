@@ -2,28 +2,26 @@
   
 {% block body %}
 
-<h4>Items ordered: </h4>
-<table>
-    
-    {% for  pizza in pizzas %}
+  <h4>Items ordered: </h4>
+  <table class="table">
+    <thead>
       <tr>
-        <td>{{ pizza.name }}</li>
-        <td>{{ pizza.price }}</li>
+        <th scope="col">Product name</th>
+        <th scope="col">Price</th>
       </tr>
-    {% endfor %} 
-    </br>
-    
-</table></br>
-
-<h4>Details</h4>
-<table>
-    <tr>
-      <td>
-	
-      </td>
-
-    </tr>
-    
-</table>
+    </thead>
+    <tbody>
+      {% for  pizza in pizzas %}   
+        <tr>
+          <td>{{ pizza.name }}</li>
+          <td>{{ pizza.price }}</li>
+        </tr>
+      {% endfor %} 
+        <tr>
+          <td>Total: </td>
+          <td>{{ order.price }}</td>
+        </tr>
+      </tbody>
+  </table></br>
 
 {% endblock %}
