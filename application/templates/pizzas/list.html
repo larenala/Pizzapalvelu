@@ -9,7 +9,7 @@
     {% for pizza in pizzas %}
     <form method="POST" action="{{ url_for('add_to_order', pizza_id=pizza.id) }}">
     <tr>
-      <td style="text-transform: uppercase;"> {{ pizza.name }}</td>
+      <td class="productname"> {{ pizza.name }}</td>
     </tr>
     <tr>
       <td><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}><img src={{ pizza.img }} width="150" alt="pizza image"/></a></td>

@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#jumbotron {
+    background-image: url('https://res.cloudinary.com/larenala/image/upload/v1513324826/pizza4_r2brgq.jpg'); 
+    background-size:cover; 
+    background-position:center; 
+    min-height: 400px;
+}
+
+#jumbo-text {
+    color: #fff;
+}
+
+.productname {
+    text-transform: uppercase;
+}
