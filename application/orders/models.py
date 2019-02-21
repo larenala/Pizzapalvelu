@@ -38,7 +38,7 @@ class Tilaus(db.Model):
     def find_pizzas_for_order(order_id):
         user_id=current_user.get_id()
         stmt=text("SELECT Pizza.name, Pizza.price, Order_pizza.order_id FROM Pizza, Order_pizza"
-                  " WHERE (Order_pizza.pizza_id == Pizza.id AND Order_pizza.order_id == :orderid)").params(orderid= order_id)
+                  " WHERE (Order_pizza.pizza_id = Pizza.id AND Order_pizza.order_id = :orderid)").params(orderid= order_id)
         res = db.engine.execute(stmt)
         response = []
         for row in res:
@@ -56,18 +56,4 @@ class OrderPizza(db.Model):
         self.order_id = order_id    
         self.pizza_id = pizza_id
 
-    @staticmethod
-    def find_pizzas_for_order(order_id):
-        user_id = current_user.get_id()
-        stmt=text("SELECT Pizza.id, Pizza.name, Pizza.price, Account.id, Tilaus.id, Order.sent FROM Pizza, Account, Tilaus"
-                    " LEFT JOIN OrderPizza ON OrderPizza.pizza_id = Pizza.id, OrderPizza.account_id=Account.id"
-                    " WHERE (Order.sent IS = 1)"
-                    " GROUP BY Pizza.name")
-        res=db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"name": row[0]})
-  
-        return response
-
+    
