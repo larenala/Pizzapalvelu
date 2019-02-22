@@ -73,7 +73,7 @@ def pizza_create():
 @app.route("/pizzas/edit", methods=["GET"]) 
 @login_required (role="ADMIN")
 def pizza_edit_page():
-    return render_template("pizzas/editlist.html", pizzas=Pizza.query.all())
+    return render_template("pizzas/editlist.html", pizzas=Pizza.query.filter_by(available=True))
 
 @app.route("/pizzas/edit/<pizza_id>/", methods=["GET", "POST"])
 @login_required(role="ADMIN")
