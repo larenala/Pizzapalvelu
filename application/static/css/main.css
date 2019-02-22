@@ -8,6 +8,10 @@ a {
     color: black;
 }
 
+.col-sm {
+    text-align: justify;
+}
+
 #jumbotron {
     background-image: url('https://res.cloudinary.com/larenala/image/upload/v1513324826/pizza4_r2brgq.jpg'); 
     background-size:cover; 
