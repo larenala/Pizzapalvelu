@@ -42,4 +42,6 @@ class User(db.Model):
     def roles(self):
         return [self.role]
 
+    def has_role(self, role):
+        return [self.role]
 

@@ -28,19 +28,20 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('users_form') }} ">Register a new user</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Admin
-               </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ url_for('pizzas_form') }} ">Add a new pizza</a>
-              <a class="dropdown-item" href="{{ url_for('pizza_edit_page') }}">Edit menu</a>
-            <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ url_for('orders_index') }}">View all orders</a>
-              <a class="dropdown-item" href="{{ url_for('list_users') }}">View customers</a>
-            </div>
-            </li>
-
+            {% if current_user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin
+                </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('pizzas_form') }} ">Add a new pizza</a>
+                <a class="dropdown-item" href="{{ url_for('pizza_edit_page') }}">Edit menu</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('orders_index') }}">View all orders</a>
+                <a class="dropdown-item" href="{{ url_for('list_users') }}">View customers</a>
+              </div>
+              </li>
+            {% endif %}
 
           </ul>
           <div class="form-inline mt-2 mt-md-0">
