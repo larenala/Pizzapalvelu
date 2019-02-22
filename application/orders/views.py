@@ -12,9 +12,9 @@ from application.auth.models import User
 
 
 @app.route("/orders/", methods=["GET"])
+@login_required(role='ADMIN')
 def orders_index():
     return render_template("orders/list.html", orders=Tilaus.query.filter_by(sent=True))
-
 
 @app.route("/myorders/", methods=["GET"])
 def myorders_index():

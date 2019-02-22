@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
-from application import app, db
+from application import app, db, login_required
 
 from application.orders.models import Tilaus
 from application.auth.models import User
@@ -47,6 +47,7 @@ def create_user():
     return redirect(url_for('auth_login'))
 
 @app.route ("/auth/list", methods=["GET"])
+@login_required(role='ADMIN')
 def list_users():
     return render_template("auth/list.html", accounts=User.query.all())
 
