@@ -61,6 +61,9 @@ def send_order(order_id):
         return render_template("orders/myorders.html", orders=Tilaus.query.filter_by(account_id=current_user.get_id()))
     order = Tilaus.query.get(order_id)
     form = OrderForm(request.form)
+    user = User.query.get(current_user.get_id())
+    if user.blacklist == True:
+        return render_template("orders/message.html")
     order.name = form.name.data
     order.address = form.address.data
     order.phone = form.phone.data
