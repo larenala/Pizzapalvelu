@@ -1,0 +1,13 @@
+Asennusohje:
+
+Kopioi repositorio Githubista omalle koneellesi komennolla git clone. Siirry sitten kansion juureen konsolissa. Luo ensin Python-virtuaaliympäristö antamalla komento python3 -m venv venv.
+Aktivoi virtuaaliympäristö komennolla “source venv/bin/activate”. Pip install — -upgrade pip Sitten voit asentaa Flaskin komennolla pip install Flask. 
+Loput projektin tarvitsemat riippuvuudet löytyvät requirements.txt tiedostosta sovelluksen juuresta. 
+Asenna loputkin tarvittavat riippuvuudet Pipin avulla, esim. “pip install Flask sql-alchemy”. 
+
+Uusi käyttäjä saa automaattisesti roolin “user”. Testikäytössä olevan admin-käyttäjän tunnukset: “admin”, “admin123”. Tällä hetkellä käyttäjällä voi olla vaan yksi rooli. 
+
+Käyttöohje: 
+
+Valikon menu-kohdasta voi selata valikoimaa, mutta jos haluaa tehdä tilauksen, tulee kirjautua sisään. Uusi käyttäjä saa automaattisesti roolin “user”. 
+Vain admin-roolin omaavat käyttäjät voivat käyttää admin-valikon sisältämiä palveluja.  

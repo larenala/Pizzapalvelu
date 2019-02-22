@@ -29,6 +29,8 @@ Toimintoja:
 
 [Tietokantakaavio](/documentation/Tietokantakaavio.png)
 
+[Linkki käyttö-ja asennusohjeeseen](/documentation/kaytto_ja_asennusohje)
+
 ***
 
 Testitunnukset voi luoda yläpalkin Register new user-kohdassa. 
