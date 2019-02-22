@@ -1,13 +1,27 @@
 Asennusohje:
 
-Kopioi repositorio Githubista omalle koneellesi komennolla git clone. Siirry sitten kansion juureen konsolissa. Luo ensin Python-virtuaaliympäristö antamalla komento python3 -m venv venv.
-Aktivoi virtuaaliympäristö komennolla “source venv/bin/activate”. Pip install — -upgrade pip Sitten voit asentaa Flaskin komennolla pip install Flask. 
+Kopioi repositorio Githubista omalle koneellesi komennolla git clone. Siirry sitten kansion juureen konsolissa. 
+Luo ensin Python-virtuaaliympäristö antamalla komento python3 -m venv venv.
+Aktivoi virtuaaliympäristö komennolla “source venv/bin/activate”. 
+Asenna Flask komennolla "pip install Flask", ja päivitä tarvittaessa pip komennolla "pip install --upgrade pip. 
 Loput projektin tarvitsemat riippuvuudet löytyvät requirements.txt tiedostosta sovelluksen juuresta. 
-Asenna loputkin tarvittavat riippuvuudet Pipin avulla, esim. “pip install Flask sql-alchemy”. 
+Asenna tarvittavat riippuvuudet komennolla “pip install -r requirements.txt”. 
 
-Uusi käyttäjä saa automaattisesti roolin “user”. Testikäytössä olevan admin-käyttäjän tunnukset: “admin”, “admin123”. Tällä hetkellä käyttäjällä voi olla vaan yksi rooli. 
 
 Käyttöohje: 
 
-Valikon menu-kohdasta voi selata valikoimaa, mutta jos haluaa tehdä tilauksen, tulee kirjautua sisään. Uusi käyttäjä saa automaattisesti roolin “user”. 
+Valikon menu-kohdasta voi selata valikoimaa, mutta jos haluaa tehdä tilauksen, tulee kirjautua sisään. 
+Uusi käyttäjä saa automaattisesti roolin “user”. 
 Vain admin-roolin omaavat käyttäjät voivat käyttää admin-valikon sisältämiä palveluja.  
+Tällä hetkellä käyttäjällä voi olla vaan yksi rooli.  
+
+Tilaukseen voi lisätä pizzoja menu-sivulta painamalla nappia "Add to order". Napin "More options"
+kohdalle lisätään myöhemmin mahdollisuus valita lisälisukkeita.
+Tilausta voi katsoa navigointimenun kohdasta "View order". Samasta kohdasta tilauksen voi myös
+lähettää lisäämällä pyydetyt yhteystiedot lomakkeeseen. Tilauksen lähetyksen jälkeen tilauksen
+tiedot löytyvät myös kohdasta "Order history".
+
+Admin-toimintoja ovat uuden tuotteen lisääminen, tuotteiden muokkaus ja poisto. Admin-käyttäjät
+voivat myös lisätä käyttäjälle tilauseston käyttäjälistasta ja merkitä tietyn tilauksen 
+statukseksi toimitettu.   
+

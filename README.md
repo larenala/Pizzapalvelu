@@ -29,7 +29,7 @@ Toimintoja:
 
 [Tietokantakaavio](/documentation/Tietokantakaavio.png)
 
-[Linkki käyttö-ja asennusohjeeseen](/documentation/kaytto_ja_asennusohje)
+[Käyttö-ja asennusohje](/documentation/kaytto_ja_asennusohje)
 
 ***
 
