@@ -27,9 +27,9 @@
         <td>{{ order.delivered }}</td>
       
         <td>
-       	<form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">
-	  <input type="submit" value="Change status!"/>
-	</form>
+       	  <form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">
+	          <input type="submit" value="Change status!"/>
+	        </form>
         </td>
       </tr>
       {% endfor %}

@@ -4,23 +4,22 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Username</th>
         <th scope="col">Account number</th>
+        <th scope="col">Username</th>
         <th scope="col">Blacklist</th>
       </tr>
     </thead>
     <tbody>
     {% for account in accounts %}
       <tr scope="row">
-        <td>{{ account.username }}</td>
         <td>{{ account.id }}</td>
+        <td>{{ account.username }}</td>
         <td>{{ account.blacklist }}</td>
-
         <td>
-        <form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">
-          <input type="submit" value="Change status!"/>
-        </form>
-        </td>
+            <form method="POST" action="{{ url_for('user_disable_orders', user_id=account.id) }}">
+             <input type="submit" value="Disable orders"/>
+           </form>
+         </td>
       </tr>
       {% endfor %}
      </tbody>

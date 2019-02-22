@@ -22,7 +22,6 @@ class Tilaus(db.Model):
     items = db.Column(db.String(100))
     sent = db.Column(db.Boolean, nullable=False)
     orderedPizzas=db.relationship("OrderPizza", backref='order', lazy=True)
-
     account_id=db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)
     

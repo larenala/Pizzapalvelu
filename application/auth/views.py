@@ -44,3 +44,16 @@ def create_user():
     db.session.commit()
     return redirect(url_for('auth_login'))
 
+@app.route ("/auth/list", methods=["GET"])
+def list_users():
+    return render_template("auth/list.html", accounts=User.query.all())
+
+@app.route("/auth/<user_id>", methods=["POST"])
+def user_disable_orders(user_id):
+    user = User.query.get(user_id)
+    user.blacklist = True
+    db.session().commit()
+
+    return redirect(url_for("list_users"))
+
+
