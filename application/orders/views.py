@@ -1,12 +1,15 @@
 
-from application import app, db
 from flask import redirect, render_template, request, url_for
+from flask_login import current_user
+
+from application import app, db, login_required
+
 from application.orders.models import Tilaus, OrderPizza
 from application.orders.forms import OrderForm
 from application.pizzas.models import Pizza
 from application.auth.models import User
 
-from flask_login import login_required, current_user
+
 
 @app.route("/orders/", methods=["GET"])
 def orders_index():
@@ -32,7 +35,7 @@ def orders_set_delivered(order_id):
     return redirect(url_for("orders_index"))
 
 @app.route("/orders/send/", methods=["GET"])
-@login_required
+@login_required(role="USER")
 def send_order_main():
     user_id = current_user.get_id()
     user=User.query.get(user_id)
@@ -55,7 +58,7 @@ def send_order_main():
     return render_template("orders/new.html", order = order, pizzas=pizzalist, form=OrderForm())
 
 @app.route("/orders/send/<order_id>/", methods=["GET", "POST"])
-@login_required
+@login_required(role="USER")
 def send_order(order_id):
     if request.method == 'GET':
         return render_template("orders/myorders.html", orders=Tilaus.query.filter_by(account_id=current_user.get_id()))

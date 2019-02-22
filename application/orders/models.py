@@ -19,7 +19,6 @@ class Tilaus(db.Model):
     phone = db.Column(db.String(15))
     delivered = db.Column(db.Boolean, nullable=False)
     price = db.Column(db.Float(10), nullable=False)
-    items = db.Column(db.String(100))
     sent = db.Column(db.Boolean, nullable=False)
     orderedPizzas=db.relationship("OrderPizza", backref='order', lazy=True)
     account_id=db.Column(db.Integer, db.ForeignKey('account.id'),
@@ -30,7 +29,6 @@ class Tilaus(db.Model):
         self.account_id = account_id
         self.delivered = False
         self.price = price 
-        self.items = ""
         self.sent = False
 
     @staticmethod
