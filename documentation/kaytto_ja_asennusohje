@@ -1,9 +1,9 @@
 Asennusohje:
 
 Kopioi repositorio Githubista omalle koneellesi komennolla git clone. Siirry sitten kansion juureen konsolissa. 
-Luo ensin Python-virtuaaliympäristö antamalla komento python3 -m venv venv.
+Luo ensin Python-virtuaaliympäristö antamalla komento "python3 -m venv venv".
 Aktivoi virtuaaliympäristö komennolla “source venv/bin/activate”. 
-Asenna Flask komennolla "pip install Flask", ja päivitä tarvittaessa pip komennolla "pip install --upgrade pip. 
+Asenna Flask komennolla "pip install Flask", ja päivitä tarvittaessa pip komennolla "pip install --upgrade pip". 
 Loput projektin tarvitsemat riippuvuudet löytyvät requirements.txt tiedostosta sovelluksen juuresta. 
 Asenna tarvittavat riippuvuudet komennolla “pip install -r requirements.txt”. 
 
@@ -11,7 +11,8 @@ Näiden toimenpiteiden jälkeen sovelluksen saa käynnistettyä komennolla "pyth
 
 Käyttöohje: 
 
-Valikon menu-kohdasta voi selata valikoimaa, mutta jos haluaa tehdä tilauksen, tulee kirjautua sisään. 
+Pizzapalvelun sivuilla voi lisätä tilaukseen pizzoja.
+Valikon menu-kohdasta kuka vain voi selata valikoimaa, mutta jos haluaa tehdä tilauksen, tulee kirjautua sisään. 
 Uusi käyttäjä saa automaattisesti roolin “user”. 
 Vain admin-roolin omaavat käyttäjät voivat käyttää admin-valikon sisältämiä palveluja.  
 Tällä hetkellä käyttäjällä voi olla vaan yksi rooli.  
@@ -20,13 +21,14 @@ Tilaukseen voi lisätä pizzoja menu-sivulta painamalla nappia "Add to order". N
 kohdalle lisätään myöhemmin mahdollisuus valita lisälisukkeita.
 Tilausta voi katsoa navigointimenun kohdasta "View order". Samasta kohdasta tilauksen voi myös
 lähettää lisäämällä pyydetyt yhteystiedot lomakkeeseen. Tilauksen lähetyksen jälkeen tilauksen
-tiedot löytyvät myös kohdasta "Order history".
+tiedot löytyvät kohdasta "Order history".
 
 Admin-toimintoja ovat uuden tuotteen lisääminen, tuotteiden muokkaus ja poisto. Admin-käyttäjät
 voivat myös lisätä käyttäjälle tilauseston käyttäjälistasta ja merkitä tietyn tilauksen 
 statukseksi toimitettu.   
 
-Testitunnukset voi luoda yläpalkin Register new user-kohdassa. Voit myös käyttää valmiita tunnuksia. 
+Testitunnukset voi luoda yläpalkin Register new user-kohdassa. Voit myös käyttää seuraavia 
+valmiita tunnuksia: 
 
 Käyttäjätason tunnukset: username "testi" ja salasana "testi123". 
 Admin-tason tunnukset: username "admin" ja salasana "admin123".
