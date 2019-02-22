@@ -7,6 +7,7 @@ Asenna Flask komennolla "pip install Flask", ja päivitä tarvittaessa pip komen
 Loput projektin tarvitsemat riippuvuudet löytyvät requirements.txt tiedostosta sovelluksen juuresta. 
 Asenna tarvittavat riippuvuudet komennolla “pip install -r requirements.txt”. 
 
+Näiden toimenpiteiden jälkeen sovelluksen saa käynnistettyä komennolla "python run.py"
 
 Käyttöohje: 
 
@@ -25,3 +26,7 @@ Admin-toimintoja ovat uuden tuotteen lisääminen, tuotteiden muokkaus ja poisto
 voivat myös lisätä käyttäjälle tilauseston käyttäjälistasta ja merkitä tietyn tilauksen 
 statukseksi toimitettu.   
 
+Testitunnukset voi luoda yläpalkin Register new user-kohdassa. Voit myös käyttää valmiita tunnuksia. 
+
+Käyttäjätason tunnukset: username "testi" ja salasana "testi123". 
+Admin-tason tunnukset: username "admin" ja salasana "admin123".
