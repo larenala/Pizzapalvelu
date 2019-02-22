@@ -10,7 +10,7 @@ from application.auth.models import User
 
 @app.route("/pizzas", methods=["GET"])
 def pizzas_index():
-   return render_template("pizzas/list.html", pizzas=Pizza.query.all()) 
+   return render_template("pizzas/list.html", pizzas=Pizza.query.filter_by(available=True)) 
 
 @app.route("/pizzas/<pizza_id>/", methods=["GET"])
 def show_pizza(pizza_id):    
@@ -97,7 +97,7 @@ def pizza_update(pizza_id):
 @login_required(role="ADMIN")
 def pizza_delete(pizza_id):
     p=Pizza.query.get(pizza_id)
-    db.session().delete(p)
+    p.available=False
     db.session().commit()
     return redirect(url_for('pizzas_index'))
 
