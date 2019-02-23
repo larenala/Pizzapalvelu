@@ -12,6 +12,13 @@ a {
     text-align: justify;
 }
 
+div.alert, 
+ul.flashes {  
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+
 #jumbotron {
     background-image: url('https://res.cloudinary.com/larenala/image/upload/v1513324826/pizza4_r2brgq.jpg'); 
     background-size:cover; 
