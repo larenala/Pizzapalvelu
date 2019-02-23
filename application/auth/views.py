@@ -16,10 +16,10 @@ def auth_login():
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
-        return render_template("auth/loginform.html", form = form,
-                               error = "No such username or password")
+        flash('The username or password does not exist')
+        return render_template("auth/loginform.html", form = form)
     login_user(user)
-
+    flash('You were successfully logged in')
     return redirect(url_for('pizzas_index'))
 
 @app.route("/auth/logout")
