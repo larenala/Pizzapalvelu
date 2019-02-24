@@ -1,5 +1,5 @@
 
-from flask import redirect, render_template, request, url_for
+from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user
 
 from application import app, db, login_required
@@ -55,7 +55,7 @@ def send_order_main():
         p_id = item.pizza_id
         pizza = Pizza.query.get(p_id)
         pizzalist.append(pizza)
-    return render_template("orders/new.html", order = order, pizzas=pizzalist, form=OrderForm())
+    return render_template("orders/new.html", order = order, pizzas=pizzalist, form=OrderForm(), orderPizzas=orderPizzas)
 
 @app.route("/orders/send/<order_id>/", methods=["GET", "POST"])
 @login_required(role="USER")
@@ -76,3 +76,30 @@ def send_order(order_id):
     user.current_order = False
     db.session.commit()
     return redirect(url_for('myorders_index'))
+
+@app.route("/orders/delete/<order_id>/<pizza_id>/,", methods=["GET", "POST"])
+@login_required(role="USER")
+def orderpizza_delete(order_id, pizza_id):
+    list_of_ids=OrderPizza.find_orderpizza_id(order_id, pizza_id)
+    id_value = 0
+    for orderpizza_id in list_of_ids:
+        for key in orderpizza_id:
+            value = orderpizza_id[key]
+            id_value = value
+            print(id_value)
+
+    orderpizza = OrderPizza.query.get(id_value)
+    pizza = Pizza.query.get(pizza_id)
+    o = Tilaus.query.get(order_id)
+    o.price = float(o.price) - float(pizza.price)
+    db.session.delete(orderpizza)
+    if o.price == 0:
+        db.session.delete(o)
+        user = User.query.get(current_user.get_id())
+        user.current_order = False
+        db.session().commit()
+        return redirect(url_for('pizzas_index'))   
+    db.session().commit()
+    flash('Removed item from order')
+    return redirect(url_for('send_order_main'))
+

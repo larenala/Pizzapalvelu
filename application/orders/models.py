@@ -52,5 +52,16 @@ class OrderPizza(db.Model):
     def __init__(self, order_id, pizza_id):
         self.order_id = order_id    
         self.pizza_id = pizza_id
+    
+    @staticmethod
+    def find_orderpizza_id(order_id, pizza_id):
+        stmt=text("SELECT id FROM Order_pizza"
+                  " WHERE order_id=:order_id AND pizza_id=:pizza_id").params(order_id=order_id, pizza_id=pizza_id)
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"orderpizza_id":row[0]})
+        return response
+
 
     

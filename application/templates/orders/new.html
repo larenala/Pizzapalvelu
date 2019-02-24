@@ -9,9 +9,12 @@
     
     {% for  pizza in pizzas %}
       <tr>
-        <td>{{ pizza.name }}</li>
-        <td>{{ pizza.price }}</li>
-      </tr>
+        <td>{{ pizza.name }}</td>
+        <td>{{ pizza.price }}</td>
+        <td>
+          <button><a href= {{ url_for('orderpizza_delete', order_id=order.id, pizza_id=pizza.id) }}>Remove</a></button>
+        </td>
+        </tr>
     {% endfor %} 
     </br>
     <tr>

@@ -20,7 +20,7 @@
         <td>{{ order.account_id }}</td>
         <td>{{ order.address }}</td>
         <td>{{ order.price }}</td>
-        <td><button><a href= "{{ url_for('show_order', order_id=order.id) }}">Show</a></button></td>
+        <td><button><a href= "{{ url_for('show_order', order_id=order.id) }}", role="button">Show</a></button></td>
       </tr>
     </a>
       {% endfor %}
