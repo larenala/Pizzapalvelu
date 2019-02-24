@@ -85,7 +85,7 @@ def pizza_update(pizza_id):
     form=PizzaForm(request.form)
 
     if form.name.data:
-          p.name=form.name.data
+        p.name=form.name.data
     p.ingredients=form.ingredients.data
     p.img = form.img.data
     p.price = form.price.data

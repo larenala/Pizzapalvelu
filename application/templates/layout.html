@@ -7,7 +7,7 @@
         {% if messages %}
           <ul class=flashes>
           {% for message in messages %}
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <div class="alert alert-info alert-dismissible show fade" role="alert">
             <a href="#" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times</span></a>
             <li>{{ message }}</li>
           {% endfor %}
@@ -20,49 +20,49 @@
 
     <body>
 
-      <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
-	<a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('pizzas_index') }} ">Menu</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('send_order_main') }} ">View order</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('myorders_index') }} ">Order history</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('users_form') }} ">Register a new user</a>
-            </li>
-            {% if current_user.is_authenticated %}
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Admin
-                </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url_for('pizzas_form') }} ">Add a new pizza</a>
-                <a class="dropdown-item" href="{{ url_for('pizza_edit_page') }}">Edit menu</a>
-              <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ url_for('orders_index') }}">View all orders</a>
-                <a class="dropdown-item" href="{{ url_for('list_users') }}">View customers</a>
-              </div>
-              </li>
-            {% endif %}
+      <nav class="navbar navbar-expand-md navbar-light bg-light mb-4" role="menubar">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pizzas_index') }} ">Menu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('send_order_main') }} ">View order</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('myorders_index') }} ">Order history</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('users_form') }} ">Register a new user</a>
+                  </li>
+                  {% if current_user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                      </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ url_for('pizzas_form') }} ">Add a new pizza</a>
+                      <a class="dropdown-item" href="{{ url_for('pizza_edit_page') }}">Edit menu</a>
+                    <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="{{ url_for('orders_index') }}">View all orders</a>
+                      <a class="dropdown-item" href="{{ url_for('list_users') }}">View customers</a>
+                    </div>
+                    </li>
+                  {% endif %}
 
-          </ul>
-          <div class="form-inline mt-2 mt-md-0">
-	    {% if current_user.is_authenticated %}
-        <a href="{{ url_for('auth_logout') }}">Hello {{ current_user.name }} -- Logout</a>
-      {% else %}
-        <a href="{{ url_for('auth_login') }}">Login</a>
-	    {% endif %}
-          </div>
-	</div>
+                </ul>
+                <div class="form-inline mt-2 mt-md-0">
+            {% if current_user.is_authenticated %}
+              <a href="{{ url_for('auth_logout') }}">Hello {{ current_user.name }} -- Logout</a>
+            {% else %}
+              <a href="{{ url_for('auth_login') }}">Login</a>
+            {% endif %}
+                </div>
+        </div>
       </nav>
       
       <main role="main" class="container">
