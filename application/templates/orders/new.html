@@ -5,26 +5,34 @@
 
 
 <h4>Items ordered: </h4>
-<table>
-    
+<table class="table">
+  <thead>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+  </thead>
+  <tbody>  
     {% for  pizza in pizzas %}
       <tr>
-        <td>{{ pizza.name }}</td>
+        <th scope="row">{{ pizza.name }}</th>
         <td>{{ pizza.price }}</td>
         <td>
-          <button><a href= {{ url_for('orderpizza_delete', order_id=order.id, pizza_id=pizza.id) }}>Remove</a></button>
+            <form method="POST" action="{{ url_for('orderpizza_delete', order_id=order.id, pizza_id=pizza.id) }}">
+                <input type="submit" value="Remove"/>
+              </form>
         </td>
-        </tr>
+      </tr>
     {% endfor %} 
     </br>
     <tr>
-      <td>Total: </td>
-      <td>{{ order.price }}</td>
+      <th scope="row">Total: </th>
+      <td colspan="2">{{ order.price }}</td>
     </tr>
+  </tbody>  
 </table></br>
 <form method="POST" action="{{ url_for('send_order', order_id=order.id) }}">
 <h4>Send order</h4>
-<table>
+<table class="table">
     <tr>
       <td>
 	{{ form.name.label }}
