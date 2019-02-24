@@ -15,7 +15,7 @@
     {% for  pizza in pizzas %}
       <tr>
         <th scope="row">{{ pizza.name }}</th>
-        <td>{{ pizza.price }}</td>
+        <td>{{ pizza.price  }}</td>
         <td>
             <form method="POST" action="{{ url_for('orderpizza_delete', order_id=order.id, pizza_id=pizza.id) }}">
                 <input type="submit" value="Remove"/>
@@ -26,7 +26,7 @@
     </br>
     <tr>
       <th scope="row">Total: </th>
-      <td colspan="2">{{ order.price }}</td>
+      <td colspan="2">{{ "{:.2f}".format(order.price) }}</td>
     </tr>
   </tbody>  
 </table></br>
