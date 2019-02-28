@@ -77,6 +77,7 @@ def send_order(order_id):
     db.session.commit()
     return redirect(url_for('myorders_index'))
 
+
 @app.route("/orders/delete/<order_id>/<pizza_id>/,", methods=["GET", "POST"])
 @login_required(role="USER")
 def orderpizza_delete(order_id, pizza_id):
@@ -103,3 +104,17 @@ def orderpizza_delete(order_id, pizza_id):
     flash('Removed item from order')
     return redirect(url_for('send_order_main'))
 
+@app.route("/orders/delete/<order_id>/", methods=["POST"])
+@login_required(role="USER")
+def order_delete(order_id):
+    o=Tilaus.query.get(order_id)
+    orderpizzas = OrderPizza.query.filter_by(order_id=o.id)
+    for orderpizza in orderpizzas:
+        db.session.delete(orderpizza)
+    user_id = current_user.get_id()
+    user = User.query.get(user_id)
+    user.current_order = False
+    db.session.delete(o)
+    flash('Your order was cancelled')
+    db.session().commit()
+    return redirect(url_for('pizzas_index'))

@@ -30,5 +30,4 @@ class Pizza(Product):
         response = []
         for row in res:
             response.append({"name":row[0], "sold":row[1] })
-            print("RESPONSE ", res)
         return response

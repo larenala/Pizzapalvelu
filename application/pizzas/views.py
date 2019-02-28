@@ -97,7 +97,7 @@ def pizza_update(pizza_id):
     return redirect(url_for('pizza_edit_page'))
 
 
-@app.route("/pizzas/delete/<pizza_id>/", methods=["POST"])
+@app.route("/pizzas/remove/<pizza_id>/", methods=["POST"])
 @login_required(role="ADMIN")
 def pizza_delete(pizza_id):
     p=Pizza.query.get(pizza_id)

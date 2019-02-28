@@ -19,7 +19,7 @@
         <td>
             <form method="POST" action="{{ url_for('orderpizza_delete', order_id=order.id, pizza_id=pizza.id) }}">
                 <input type="submit" value="Remove"/>
-              </form>
+            </form>
         </td>
       </tr>
     {% endfor %} 
@@ -60,9 +60,20 @@
 
     <tr>
       <td colspan="2">
-	<input type="submit" value="Add a new order"/>
+        <input type="submit" name="add" value="Add a new order"/>
       </td>
     </tr>
+    </form>
+    <form method="POST" action={{ url_for('order_delete', order_id=order.id) }}>
+
+        <tr>
+          <td colspan="2">
+              <input type="submit" value="Cancel this order" />
+          </td>
+        </tr>
+    
+    </form>
 </table>
-</form>
+
+
 {% endblock %}
