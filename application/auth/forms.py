@@ -9,14 +9,21 @@ class LoginForm(FlaskForm):
         csrf = False
 
 class AccountForm(FlaskForm):
-     name = StringField("Name", [validators.InputRequired("Please enter your name.")])
-     username = StringField("Username", [validators.Length(min=2, max=25)])
-     password = PasswordField("Password", [validators.Length(min=8, max=25)])
+     name = StringField("Name", [
+         validators.InputRequired("Please enter your name."),
+         validators.Length(min=2, max=30)   
+     ])
+     username = StringField("Username", [
+         validators.InputRequired("Please enter a username."),
+         validators.Length(min=2, max=25)])
+     password = PasswordField("Password", [
+         validators.InputRequired("Please enter a password."),
+         validators.Length(min=8, max=25)])
      password = PasswordField('New Password', [
          validators.DataRequired(),
          validators.EqualTo('confirm', message='Passwords must match')
      ])
-     confirm = PasswordField('Repeat Password')
+     confirm = PasswordField('Repeat Password') 
 
      class Meta:
          csrf = False
