@@ -3,29 +3,32 @@
 {% block body %}
 <h2>Menu</h2>
 <table>
+    <caption>List of menu items</caption>
     {% for pizza in pizzas %}
-    <form method="POST" action="{{ url_for('add_to_order', pizza_id=pizza.id) }}">
-    <tr>
-      <td class="productname"> {{ pizza.name }}</td>
-    </tr>
-    <tr>
-      <td><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}><img src={{ pizza.img }} width="220" alt="pizza image"/></a></td>
-    </tr>
-    <tr>
-      <td>Ingredients: {{ pizza.ingredients }}</td>
-    </tr>
-    <tr>
-      <td>
-        Price: {{ "{:.2f}".format(pizza.price) }}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input type="submit" value="Add to order"/>
-        <button><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}>More options</a></button>
-      </td>
-    </tr>
-    </form>
+    <div class="menuItem">
+      <form method="POST" action="{{ url_for('add_to_order', pizza_id=pizza.id) }}">
+        <tr>
+          <td class="productname"> {{ pizza.name }}</td>
+        </tr>
+        <tr>
+          <td><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}><img src={{ pizza.img }} width="220" alt="pizza image"/></a></td>
+        </tr>
+        <tr>
+          <td>Ingredients: {{ pizza.ingredients }}</td>
+        </tr>
+        <tr>
+          <td>
+            Price: {{ "{:.2f}".format(pizza.price) }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="Add to order"/>
+            <button><a href= {{ url_for('show_pizza', pizza_id= pizza.id) }}>More options</a></button>
+          </td>
+        </tr>
+      </form>
+    </div>
     {% endfor %}
   </table>
 

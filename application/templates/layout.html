@@ -30,12 +30,14 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('pizzas_index') }} ">Menu</a>
                   </li>
+                  {% if current_user.is_authenticated %}
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('send_order_main') }} ">View order</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('myorders_index') }} ">Order history</a>
                   </li>
+                  {% endif %}
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('users_form') }} ">Register a new user</a>
                   </li>
@@ -50,6 +52,7 @@
                     <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="{{ url_for('orders_index') }}">View all orders</a>
                       <a class="dropdown-item" href="{{ url_for('list_users') }}">View customers</a>
+                      <a class="dropdown-item" href="{{ url_for('pizzas_stats_index') }}">Sales data</a>
                     </div>
                     </li>
                   {% endif %}
