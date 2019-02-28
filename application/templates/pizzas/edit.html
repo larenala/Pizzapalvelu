@@ -1,47 +1,59 @@
 {% extends "layout.html" %}
 {% block body %}
-<form method="POST" action="{{ url_for('pizza_update', pizza_id=pizza.id) }}">
-    <table>
-      <tr>
+
+  <table>
+    <form method="POST" action="{{ url_for('pizza_update', pizza_id=pizza.id) }}">
+      
+        <tr>
+          <td>
+            {{ form.name.label }}
+          </td>
+          <td>
+            {{ form.name(value= pizza.name) }}
+          </td>
+        <tr>
         <td>
-          {{ form.name.label }}
+          {{ form.ingredients.label }}
         </td>
         <td>
-          {{ form.name(value= pizza.name) }}
+            {{ form.ingredients(value=pizza.ingredients) }} 
         </td>
-       <tr>
-       <td>
-         {{ form.ingredients.label }}
-       </td>
-       <td>
-          {{ form.ingredients(value=pizza.ingredients) }} 
-       </td>
-       <tr>
-         <td>
-           {{ form.img.label }}
-         </td>
-         <td>
-          {{ form.img(value=pizza.img) }}
-         </td>
-       </tr>
-       <tr>
-        <td>
-          {{ form.price.label }}
-        </td>
-        <td>
-          {{ form.price(value=pizza.price) }}
-        </td>
-      </tr>
+        <tr>
+          <td>
+            {{ form.img.label }}
+          </td>
+          <td>
+            {{ form.img(value=pizza.img) }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {{ form.price.label }}
+          </td>
+          <td>
+            {{ form.price(value=pizza.price) }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <input type="submit" name="muokkaa" value="Update" />
+          </td>
+        </tr>
+    </form>
+    <form method="POST" action="{{ url_for('pizza_delete', pizza_id=pizza.id) }}"></form>
+        <tr>
+          <td>              
+            <input type="submit" name="poista" value="Remove" />             
+          </td>
+        </tr>
+      </form>    
+  </table>
+    
 
-    </table>
-   <input type="submit" name="muokkaa" value="Update" />
-
-</form>
 
 
 
-<form method="POST" action="{{ url_for('pizza_delete', pizza_id=pizza.id) }}">
-    <input type="submit" name="poista" value="Remove" />
-</form>
+
+
 {% endblock %}
 
