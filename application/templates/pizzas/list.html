@@ -3,7 +3,6 @@
 {% block body %}
 <h2>Menu</h2>
 <table>
-    <caption>List of menu items</caption>
     {% for pizza in pizzas %}
     <div class="menuItem">
       <form method="POST" action="{{ url_for('add_to_order', pizza_id=pizza.id) }}">

@@ -20,10 +20,17 @@
 
   <tr>
     <td>
-      Price: {{ pizza.price }}
+      Price: {{ "{:.2f}".format(pizza.price) }}
     </td>
   </tr>
-
+  <tr>
+    <td>
+      <label>Add ingredients:</label><br/>
+      <select name="ingredientID">
+          <option>Ainesosa</option>
+      </select>
+    </td>
+  </tr>
   <tr>
     <td>
      <input type="submit" value="Add to order" />
