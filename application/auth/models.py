@@ -14,7 +14,7 @@ class User(db.Model):
     password = db.Column(db.String(20), nullable=False)
     role = db.Column(db.String(80), nullable=False)
     blacklist = db.Column(db.Boolean, default=False)
-    current_order = db.Column(db.Boolean, default=False)
+    current_order = db.Column(db.Boolean, default=False, nullable=False)
     orders=db.relationship("Tilaus", backref='account', lazy=True)
 
     def __init__(self, name, username, password, role):
