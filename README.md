@@ -31,6 +31,8 @@ Toimintoja:
 
 [Käyttö-ja asennusohje](/documentation/kaytto_ja_asennusohje)
 
+[Create table-lauseet](/documentation/CreateTable_lauseet)
+
 ***
 
 Testitunnukset voi luoda yläpalkin Register new user-kohdassa. 
