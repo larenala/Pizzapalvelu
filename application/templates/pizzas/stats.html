@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Show pizzas by how many sold</h2>
+<table class="table">
+        <thead>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Sold</th>
+        </thead>
+        <tbody>  
+          {% for  pizza in pizzas %}
+            <tr>
+              <th scope="row">{{ pizza.name }}</th>
+              <td>{{ pizza.price  }}</td>
+              <td>
+                  {{ pizza.sold }}
+              </td>
+            </tr>
+          {% endfor %} 
+          </br>
+          
+        </tbody>  
+      </table></br>
+
+{% endblock %}

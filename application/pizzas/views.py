@@ -1,4 +1,4 @@
-from flask import redirect, render_template, request, url_for
+from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user
 
 from application import app, db, login_required
@@ -15,6 +15,11 @@ def pizzas_index():
 @app.route("/pizzas/<pizza_id>/", methods=["GET"])
 def show_pizza(pizza_id):    
     return render_template("pizzas/pizza.html", pizza=Pizza.query.filter_by(id=pizza_id).first())
+
+
+@app.route("/pizzas/stats", methods=["GET"])
+def pizzas_stats_index():
+    return render_template("pizzas/stats.html", pizzas=Pizza.show_pizza_stats())    
 
 @app.route("/pizzas/order/<pizza_id>/", methods=["GET", "POST"])
 @login_required(role="USER")
@@ -83,7 +88,6 @@ def pizza_update(pizza_id):
 
     p=Pizza.query.get(pizza_id)
     form=PizzaForm(request.form)
-
     if form.name.data:
         p.name=form.name.data
     p.ingredients=form.ingredients.data
