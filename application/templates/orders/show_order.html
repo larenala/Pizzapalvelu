@@ -15,12 +15,12 @@
       {% for  pizza in pizzas %}   
         <tr>
           <td>{{ pizza.name }}</li>
-          <td>{{ pizza.price }}</li>
+          <td>{{ "{:.2f}".format(pizza.price) }}</li>
         </tr>
       {% endfor %} 
         <tr>
           <td>Total: </td>
-          <td>{{ order.price }}</td>
+          <td>{{ "{:.2f}".format(order.price) }}</td>
         </tr>
       </tbody>
   </table></br>
