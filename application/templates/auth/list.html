@@ -7,6 +7,7 @@
         <th scope="col">Account number</th>
         <th scope="col">Username</th>
         <th scope="col">Blacklist</th>
+        <th scope="col">Disable orders</th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +18,7 @@
         <td>{{ account.blacklist }}</td>
         <td>
             <form method="POST" action="{{ url_for('user_disable_orders', user_id=account.id) }}">
-             <input type="submit" value="Disable orders"/>
+             <input type="submit" class="btn-default" value="Disable"/>
            </form>
          </td>
          

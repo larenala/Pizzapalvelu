@@ -36,14 +36,14 @@
         </tr>
         <tr>
           <td>
-              <input type="submit" name="muokkaa" value="Update" />
+              <input type="submit" class="btn-default" name="muokkaa" value="Update" />
           </td>
         </tr>
     </form>
     <form method="POST" action="{{ url_for('pizza_delete', pizza_id=pizza.id) }}"></form>
         <tr>
           <td>              
-            <input type="submit" name="poista" value="Remove" />             
+            <input type="submit" class="btn-default" name="poista" value="Remove" />             
           </td>
         </tr>
       </form>    

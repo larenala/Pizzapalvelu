@@ -11,6 +11,8 @@
         <th scope="col">Phone number</th>
         <th scope="col">Total</th>
         <th scope="col">Delivered</th>
+        <th scope="col">View</th>
+        <th scope="col">Change delivery status</th>
       </tr>
     </thead>
     <tbody>
@@ -23,10 +25,10 @@
         <td>{{ order.phone }}</td>
         <td>{{ order.price }}</td>
         <td>{{ order.delivered }}</td>
-      
+        <td><button class="btn-default"><a href= "{{ url_for('show_order', order_id=order.id) }}">Show</a></button></td>
         <td>
        	  <form method="POST" action="{{ url_for('orders_set_delivered', order_id=order.id) }}">
-	          <input type="submit" value="Change delivery status"/>
+	          <input type="submit" class="btn-default" value="Change"/>
 	        </form>
         </td>
       </tr>
