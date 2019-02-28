@@ -5,17 +5,13 @@
 <table class="table">
         <thead>
             <th scope="col">Product</th>
-            <th scope="col">Price</th>
             <th scope="col">Sold</th>
         </thead>
         <tbody>  
           {% for  pizza in pizzas %}
             <tr>
               <th scope="row">{{ pizza.name }}</th>
-              <td>{{ pizza.price  }}</td>
-              <td>
-                  {{ pizza.sold }}
-              </td>
+              <td>{{ pizza.sold }}</td>
             </tr>
           {% endfor %} 
           </br>

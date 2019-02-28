@@ -8,6 +8,8 @@ class Pizza(Product):
     __tablename__ = "pizza"
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(144), nullable=False)
+    price = db.Column(db.Float(10), nullable=False)
     ingredients = db.Column(db.String(144), nullable=False)
     img = db.Column(db.String(200), nullable=False) 
     available = db.Column(db.Boolean, default=True)
@@ -22,11 +24,11 @@ class Pizza(Product):
     @staticmethod
     def show_pizza_stats():    
         pizzas=Pizza.query.all()
-        stmt=text("SELECT Pizza.name, Pizza.price, COUNT(order_pizza.id) AS sold FROM order_pizza"
+        stmt=text("SELECT Pizza.name, COUNT(order_pizza.id) AS sold FROM order_pizza"
                   " LEFT JOIN pizza ON order_pizza.pizza_id=pizza.id GROUP BY pizza.name") 
         res = db.engine.execute(stmt)       
         response = []
         for row in res:
-            response.append({"name":row[0], "price":row[1], "sold":row[2]})
+            response.append({"name":row[0], "sold":row[1] })
             print("RESPONSE ", res)
         return response
