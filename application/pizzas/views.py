@@ -69,7 +69,7 @@ def pizza_create():
     name = form.name.data
     ingredients = form.ingredients.data
     img = form.img.data
-    price = form.price.data
+    price = float(form.price.data)
     p = Pizza(name, ingredients, img, price)
     db.session().add(p)
     db.session().commit()  
