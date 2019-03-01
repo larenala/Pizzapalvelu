@@ -36,4 +36,10 @@
       {% endfor %}
      </tbody>
    </table>
+   {% if prev_url %}
+   <a class="btn btn-default" href="{{ prev_url }}">Previous page</a>
+   {% endif %}
+   {% if next_url %}
+   <a class="btn btn-default" href="{{ next_url }}">Next page</a>
+   {% endif %}
 {% endblock %}

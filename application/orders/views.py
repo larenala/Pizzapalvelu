@@ -14,7 +14,14 @@ from application.auth.models import User
 @app.route("/orders/", methods=["GET"])
 @login_required(role='ADMIN')
 def orders_index():
-    return render_template("orders/list.html", orders=Tilaus.query.filter_by(sent=True))
+    per_page=8
+    page = request.args.get('page', 1, type=int)
+    orders=Tilaus.query.filter_by(sent=True).paginate(page, per_page, False)
+    next_url = url_for('orders_index', page=orders.next_num) \
+        if orders.has_next else None
+    prev_url = url_for('orders_index', page=orders.prev_num) \
+        if orders.has_prev else None
+    return render_template("orders/list.html", orders=orders.items, page=1, next_url=next_url, prev_url=prev_url)
 
 
 @app.route("/orders/notdelivered", methods=["GET"])
