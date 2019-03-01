@@ -40,7 +40,7 @@
           </td>
         </tr>
     </form>
-    <form method="POST" action="{{ url_for('pizza_delete', pizza_id=pizza.id) }}"></form>
+    <form method="POST" action="{{ url_for('pizza_delete', pizza_id=pizza.id) }}">
         <tr>
           <td>              
             <input type="submit" class="btn-default" name="poista" value="Remove" />             
