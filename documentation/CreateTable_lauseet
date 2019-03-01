@@ -1,6 +1,6 @@
 CREATE TABLE pizza (
 	name VARCHAR(150) NOT NULL, 
-	price VARCHAR(20) NOT NULL, 
+	price FLOAT NOT NULL, 
 	id INTEGER NOT NULL, 
 	ingredients VARCHAR(144) NOT NULL, 
 	img VARCHAR(200) NOT NULL, 
@@ -8,6 +8,7 @@ CREATE TABLE pizza (
 	PRIMARY KEY (id), 
 	CHECK (available IN (0, 1))
 );
+
 CREATE TABLE account (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
@@ -17,12 +18,13 @@ CREATE TABLE account (
 	password VARCHAR(20) NOT NULL, 
 	role VARCHAR(80) NOT NULL, 
 	blacklist BOOLEAN, 
-	current_order BOOLEAN, 
+	current_order BOOLEAN NOT NULL, 
 	PRIMARY KEY (id), 
 	UNIQUE (username), 
 	CHECK (blacklist IN (0, 1)), 
 	CHECK (current_order IN (0, 1))
-);
+);	
+
 CREATE TABLE IF NOT EXISTS "order" (
 	id INTEGER NOT NULL, 
 	order_date DATETIME, 
