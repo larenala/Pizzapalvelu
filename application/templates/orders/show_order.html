@@ -1,8 +1,23 @@
 {% extends "layout.html" %}
   
 {% block body %}
+<h4>Order:</h4>
+<table class="table">
+  <tr scope="row">
+    <td>Ordernumber: {{ order.id }}</td>
+  </tr>
+  <tr scope="row">
+      <td>Account number: {{ order.account_id }}</td>
+  </tr> 
+  <tr scope="row">
+    <td>Ordered on: {{ order.order_date }}</td>
+  </tr>    
+  <tr scope="row">
+      <td>Delivery address: {{ order.address }}</td>
+  </tr> 
+</table>
 
-  <h4>Items ordered: </h4>
+  <h4>Items: </h4>
   <table class="table">
     <thead>
       <tr>
