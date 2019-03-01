@@ -17,6 +17,7 @@ def show_pizza(pizza_id):
     return render_template("pizzas/pizza.html", pizza=Pizza.query.filter_by(id=pizza_id).first())
 
 @app.route("/pizzas/stats", methods=["GET"])
+@login_required(role="ADMIN")
 def pizzas_stats_index():
     return render_template("pizzas/stats.html", pizzas=Pizza.show_pizza_stats())    
 

@@ -31,16 +31,19 @@ def notdelivered_index():
 
 
 @app.route("/myorders/", methods=["GET"])
+@login_required(role="USER")
 def myorders_index():
     id = current_user.get_id()
     return render_template("orders/myorders.html", orders=Tilaus.query.filter_by(account_id=id, sent=True))
 
 @app.route("/myorders/<order_id>/", methods=["GET"])
+@login_required(role="USER")
 def show_order(order_id):
     order = Tilaus.query.get(order_id)
     return render_template("orders/show_order.html", order_id=order_id, order=order, pizzas=Tilaus.find_pizzas_for_order(order_id))
 
 @app.route("/orders/<order_id>/", methods=["POST"])
+@login_required(role="ADMIN")
 def orders_set_delivered(order_id):
     t=Tilaus.query.get(order_id)
     t.delivered=True
