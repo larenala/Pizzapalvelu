@@ -13,22 +13,24 @@ Käyttöohje:
 
 Pizzapalvelun sivuilla voi lisätä tilaukseen pizzoja.
 Valikon menu-kohdasta kuka vain voi selata valikoimaa, mutta jos haluaa tehdä tilauksen, tulee kirjautua sisään. 
-Uusi käyttäjä saa automaattisesti roolin “user”. 
+Uusi käyttäjä saa automaattisesti roolin “user”, admin rooli tulee lisätä erikseen suoraan tietokantaan. 
 Vain admin-roolin omaavat käyttäjät voivat käyttää admin-valikon sisältämiä palveluja.  
 Tällä hetkellä käyttäjällä voi olla vaan yksi rooli.  
 
-Tilaukseen voi lisätä pizzoja menu-sivulta painamalla nappia "Add to order". Napin "More options"
-kohdalle lisätään myöhemmin mahdollisuus valita lisälisukkeita.
-Tilausta voi katsoa navigointimenun kohdasta "View order". Samasta kohdasta tilauksen voi myös
-lähettää lisäämällä pyydetyt yhteystiedot lomakkeeseen. Tilauksen lähetyksen jälkeen tilauksen
+Tilaukseen voi lisätä pizzoja menu-sivulta painamalla nappia "Add to order".
+Omaa lähettämätöntä tilausta voi katsoa navigointimenun kohdasta "View order". Samasta kohdasta tilauksen 
+voi myös lähettää lisäämällä pyydetyt yhteystiedot lomakkeeseen. Tilauksen lähetyksen jälkeen tilauksen
 tiedot löytyvät kohdasta "Order history".
 
 Admin-toimintoja ovat uuden tuotteen lisääminen, tuotteiden muokkaus ja poisto. Admin-käyttäjät
 voivat myös lisätä käyttäjälle tilauseston käyttäjälistasta ja merkitä tietyn tilauksen 
-statukseksi toimitettu.   
-
+statukseksi toimitettu. Käyttäjä ja käyttäjän tilaukset voidaan myös tarvittaessa kokonaan poistaa.
+Admin-käyttäjillä on oma menu, jonka toimintoihin muilla ei ole pääsyä. Admin-menusta
+voidaan myös tarkastella pizza-ja käyttäjäkohtaisia tilaustilastoja.
+  
 Testitunnukset voi luoda yläpalkin Register new user-kohdassa. Voit myös käyttää seuraavia 
 valmiita tunnuksia: 
 
 Käyttäjätason tunnukset: username "testi" ja salasana "testi123". 
 Admin-tason tunnukset: username "admin" ja salasana "admin123".
+Tilausestoa voi kokeilla kirjautumalla tunnuksilla username "nogood" ja salasana "nogood123".
