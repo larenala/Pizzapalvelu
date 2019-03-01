@@ -23,7 +23,7 @@ class Pizza(Product):
     def show_pizza_stats():    
         pizzas=Pizza.query.all()
         stmt=text("SELECT Pizza.name, COUNT(order_pizza.id) AS sold FROM order_pizza"
-                  " LEFT JOIN pizza ON order_pizza.pizza_id=pizza.id GROUP BY pizza.name") 
+                  " LEFT JOIN pizza ON order_pizza.pizza_id=pizza.id GROUP BY pizza.name ORDER BY pizza.name ASC") 
         res = db.engine.execute(stmt)       
         response = []
         for row in res:
