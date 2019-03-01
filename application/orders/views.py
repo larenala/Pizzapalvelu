@@ -20,7 +20,7 @@ def orders_index():
 @app.route("/orders/notdelivered", methods=["GET"])
 @login_required(role='ADMIN')
 def notdelivered_index():
-    return render_template("orders/notdelivered.html", orders=Tilaus.query.filter_by(delivered=False))
+    return render_template("orders/notdelivered.html", orders=Tilaus.query.filter_by(delivered=False, sent=True))
 
 
 @app.route("/myorders/", methods=["GET"])
