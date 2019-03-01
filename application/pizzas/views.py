@@ -88,6 +88,8 @@ def pizza_update(pizza_id):
 
     p=Pizza.query.get(pizza_id)
     form=PizzaForm(request.form)
+    if not form.validate():
+        return render_template("pizzas/edit.html", form = form, pizza=Pizza.query.get(p.id))
     if form.name.data:
         p.name=form.name.data
     p.ingredients=form.ingredients.data
