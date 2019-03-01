@@ -51,6 +51,12 @@ def create_user():
 def list_users():
     return render_template("auth/list.html", accounts=User.query.all())
 
+@app.route("/auth/stats", methods=["GET"])
+@login_required(role='ADMIN')
+def customers_stats_index():
+    return render_template("auth/customerstats.html", accountaverages=User.show_account_stats())    
+
+
 @app.route("/auth/<user_id>", methods=["POST"])
 def user_disable_orders(user_id):
     user = User.query.get(user_id)

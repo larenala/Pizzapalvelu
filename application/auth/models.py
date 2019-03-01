@@ -1,5 +1,7 @@
 from application import db
 
+from sqlalchemy.sql import text
+
 class User(db.Model):
 
     __tablename__ = "account"
@@ -44,3 +46,13 @@ class User(db.Model):
     def has_role(self, role):
         return [self.role]
 
+    @staticmethod
+    def show_account_stats():
+        stmt=text("SELECT account_id, AVG(price) FROM [order]"
+                  " WHERE sent=1 GROUP BY account_id")
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"id":row[0], "price": row[1]})
+            print("RESPONSE; ", response)
+        return response

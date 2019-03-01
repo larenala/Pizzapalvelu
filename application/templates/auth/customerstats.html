@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Average orders per customer</h2>
+<table class="table table-striped table-bordered">
+        <thead>
+            <th scope="col">Customer id</th>
+            <th scope="col">Average order</th>
+        </thead>
+        <tbody>  
+          {% for  account in accountaverages %}
+            <tr>
+              <th scope="row">{{ account.id }}</th>
+              <td>{{ account.price }}</td>
+            </tr>
+          {% endfor %} 
+          </br>
+          
+        </tbody>  
+      </table></br>
+
+{% endblock %}      
