@@ -8,8 +8,6 @@ class Pizza(Product):
     __tablename__ = "pizza"
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(144), nullable=False)
-    price = db.Column(db.Float(10), nullable=False)
     ingredients = db.Column(db.String(144), nullable=False)
     img = db.Column(db.String(200), nullable=False) 
     available = db.Column(db.Boolean, default=True)

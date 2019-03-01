@@ -10,9 +10,6 @@ import os
 if os.environ.get("HEROKU"):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///orders.db"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pizzas.db"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///accounts.db"
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///orderpizzas.db"
 
 # Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
@@ -72,6 +69,7 @@ from application.pizzas import views
 
 from application.auth import models
 from application.auth import views
+
 
 # login functionality, part 2
 from application.auth.models import User
