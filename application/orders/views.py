@@ -17,6 +17,12 @@ def orders_index():
     return render_template("orders/list.html", orders=Tilaus.query.filter_by(sent=True))
 
 
+@app.route("/orders/notdelivered", methods=["GET"])
+@login_required(role='ADMIN')
+def notdelivered_index():
+    return render_template("orders/notdelivered.html", orders=Tilaus.query.filter_by(sent=False))
+
+
 @app.route("/myorders/", methods=["GET"])
 def myorders_index():
     id = current_user.get_id()

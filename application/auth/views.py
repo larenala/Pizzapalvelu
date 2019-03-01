@@ -68,7 +68,6 @@ def user_disable_orders(user_id):
 @app.route("/auth/delete/<user_id>", methods=["GET", "POST"])
 def user_delete(user_id):
     user = User.query.get(user_id)
-    print("USER IS ", user.username)
     orders = Tilaus.query.filter_by(account_id=user.id)
     for order in orders:
         orderpizzas = OrderPizza.query.filter_by(order_id=order.id)
@@ -77,7 +76,7 @@ def user_delete(user_id):
         db.session.delete(order)    
     db.session.delete(user)    
     db.session().commit()
-
+    flash('Account and all related orders were removed from the database.')
     return redirect(url_for("list_users"))    
 
 
