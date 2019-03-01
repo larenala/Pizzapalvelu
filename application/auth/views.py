@@ -49,7 +49,7 @@ def create_user():
 @app.route ("/auth/list", methods=["GET"])
 @login_required(role='ADMIN')
 def list_users():
-    per_page=10
+    per_page=8
     page = request.args.get('page', 1, type=int)
     accounts=User.query.paginate(page, per_page, False)
     next_url = url_for('list_users', page=accounts.next_num) \
