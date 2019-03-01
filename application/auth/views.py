@@ -49,7 +49,14 @@ def create_user():
 @app.route ("/auth/list", methods=["GET"])
 @login_required(role='ADMIN')
 def list_users():
-    return render_template("auth/list.html", accounts=User.query.all())
+    per_page=10
+    page = request.args.get('page', 1, type=int)
+    accounts=User.query.paginate(page, per_page, False)
+    next_url = url_for('list_users', page=accounts.next_num) \
+        if accounts.has_next else None
+    prev_url = url_for('list_users', page=accounts.prev_num) \
+        if accounts.has_prev else None
+    return render_template("auth/list.html", accounts=accounts.items, page=1, next_url=next_url, prev_url=prev_url)
 
 @app.route("/auth/stats", methods=["GET"])
 @login_required(role='ADMIN')
