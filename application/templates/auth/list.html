@@ -8,6 +8,7 @@
         <th scope="col">Username</th>
         <th scope="col">Orders disabled</th>
         <th scope="col">Disable orders</th>
+        <th scope="col">Remove account</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,11 @@
         <td>
             <form method="POST" action="{{ url_for('user_disable_orders', user_id=account.id) }}">
              <input type="submit" class="btn-default" value="Disable"/>
+           </form>
+         </td>
+         <td>
+            <form method="POST" action="{{ url_for('user_delete', user_id=account.id) }}">
+             <input type="submit" class="btn-default" value="Remove account and all data"/>
            </form>
          </td>
          

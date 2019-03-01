@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user
 
 from application import app, db, login_required
 
-from application.orders.models import Tilaus
+from application.orders.models import Tilaus, OrderPizza
 from application.auth.models import User
 from application.auth.forms import AccountForm, LoginForm
 
@@ -64,5 +64,20 @@ def user_disable_orders(user_id):
     db.session().commit()
 
     return redirect(url_for("list_users"))
+
+@app.route("/auth/delete/<user_id>", methods=["GET", "POST"])
+def user_delete(user_id):
+    user = User.query.get(user_id)
+    print("USER IS ", user.username)
+    orders = Tilaus.query.filter_by(account_id=user.id)
+    for order in orders:
+        orderpizzas = OrderPizza.query.filter_by(order_id=order.id)
+        for orderpizza in orderpizzas:
+            db.session.delete(orderpizza)
+        db.session.delete(order)    
+    db.session.delete(user)    
+    db.session().commit()
+
+    return redirect(url_for("list_users"))    
 
 

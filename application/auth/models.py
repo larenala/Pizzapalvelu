@@ -54,5 +54,4 @@ class User(db.Model):
         response = []
         for row in res:
             response.append({"id":row[0], "price": row[1]})
-            print("RESPONSE; ", response)
         return response
