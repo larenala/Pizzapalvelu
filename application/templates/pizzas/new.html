@@ -2,44 +2,65 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('pizza_create') }}">
-    <table>
-      <tr>
-	<td>
-	  {{ form.name.label }}
-	</td>
-	<td>
-	  {{ form.name(autofocus=true) }}
-	</td>
-        <td>
-	  <ul>
-	    {% for error in form.name.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-      </tr>
-      <tr>
-	<td>
-	  {{ form.ingredients.label }}
-	</td>
-	<td>
-	  {{ form.ingredients }}
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  {{ form.img.label }}
-	</td>
-	<td>
-	  {{ form.img }}
-	</td>
-      </tr>
+<table>
+  <tr>
+		<td>
+			{{ form.name.label }}
+		</td>
+		<td>
+			{{ form.name(autofocus=true) }}
+		</td>
+					<td>
+			<ul>
+				{% for error in form.name.errors %}
+				<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+				</tr>
+				<tr>
+		<td>
+			{{ form.ingredients.label }}
+		</td>
+		<td>
+			{{ form.ingredients }}
+		</td>
+		<td>
+				<ul>   
+				{% for error in form.ingredients.errors %}
+					<li>{{ error }}</li>
+				{% endfor %}
+				</ul>
+			</td>
+		</tr>
+				<tr>
+		<td>
+			{{ form.img.label }}
+		</td>
+		<td>
+			{{ form.img }}
+		</td>
+		<td>
+			<ul>   
+			{% for error in form.img.errors %}
+				<li>{{ error }}</li>
+			{% endfor %}
+			</ul>
+		</td>
+  	</tr>
       <tr>
         <td>
           {{ form.price.label }}
         </td>
         <td>
           {{ form.price }}
-        </td>
+				</td>
+				<td>
+						<ul>   
+						{% for error in form.price.errors %}
+							<li>{{ error }}</li>
+						{% endfor %}
+						</ul>
+					</td>
       </tr>
 
       <tr>
