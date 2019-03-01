@@ -48,8 +48,8 @@ class User(db.Model):
 
     @staticmethod
     def show_account_stats():
-        stmt=text("SELECT account_id, AVG(price) FROM [order]"
-                  " WHERE sent=1 GROUP BY account_id")
+        stmt=text('SELECT account_id, AVG(price) FROM "order" '
+                  'WHERE sent=1 GROUP BY account_id')
         res = db.engine.execute(stmt)
         response = []
         for row in res:
